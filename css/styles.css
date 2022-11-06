@@ -117,6 +117,8 @@ ul {
   line-height: 1.2;
   text-decoration: none;
   margin-right: 50px;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav li:last-child .link {
@@ -125,6 +127,17 @@ ul {
 
 .site-nav .link.active {
   color: var(--accent-color);
+}
+
+.link.active::after {
+  content: '';
+  background-color: #2196f3;
+  border-radius: 2px;
+  height: 4px;
+  display: block;
+  position: absolute;
+  top: 45px;
+  width: 100%;
 }
 
 .site-nav .link:hover,
@@ -140,6 +153,7 @@ ul {
   margin-right: 50px;
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-right li:last-child .contact-link {
   margin-right: 0;
@@ -150,6 +164,7 @@ ul {
 }
 .header-right .icon-header {
   margin: 10px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-right .icon-header:hover,
 .header-right .icon-header:focus {
@@ -181,6 +196,7 @@ ul {
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .order-button:hover,
 .order-button:focus {
@@ -200,6 +216,8 @@ ul {
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -305,12 +323,28 @@ ul {
 
 .skils-item {
   margin-right: 30px;
+  position: relative;
 }
 
 .skils-item:last-child {
   margin-right: 0;
 }
-
+.skils-overlay {
+  width: 100%;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+.title-overlay {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+}
 /* Team */
 .team {
   background-color: #f5f4fa;
@@ -368,6 +402,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-team {
@@ -393,12 +429,6 @@ ul {
 
 .portfolio .section-title {
   display: none;
-}
-
-.portfolio-item:hover,
-.portfolio-item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 /* Filter */
@@ -427,6 +457,13 @@ ul {
   width: 370px;
   height: 404px;
   margin-bottom: 30px;
+  text-decoration: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover,
+.portfolio-item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .portfolio-card {
@@ -448,6 +485,37 @@ ul {
   font-size: 16px;
   line-height: 1.87;
 }
+.box {
+  overflow: hidden;
+  height: 294px;
+  position: relative;
+}
+.box-overlay {
+  background: rgba(33, 150, 243, 0.9);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover .box-overlay,
+.portfolio-item:focus .box-overlay {
+  transform: translateY(0);
+}
+
+.box-text {
+  color: #ffffff;
+  width: 322px;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
 /* Clients  */
 .clients {
   padding-bottom: 94px;
@@ -475,6 +543,7 @@ ul {
   box-sizing: border-box;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .svg-clients:hover,
@@ -485,11 +554,7 @@ ul {
 .svg-clients {
   color: #afb1b8;
 }
-.svg-end:hover,
-.svg-end:focus {
-  color: #ffffff;
-  background-color: #2196f3;
-}
+
 .svg-end {
   width: 44px;
   height: 44px;
@@ -499,6 +564,13 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.svg-end:hover,
+.svg-end:focus {
+  color: #ffffff;
+  background-color: #2196f3;
 }
 .icon-logo {
   fill: currentColor;
@@ -550,6 +622,7 @@ ul {
   font-size: 14px;
   font-style: normal;
   line-height: 1.17;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-list .contact-link {
   color: rgba(255, 255, 255, 0.6);
@@ -557,6 +630,7 @@ ul {
   font-style: normal;
   line-height: 1.17;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-list .address-link:hover,
 .address-list .address-link:focus {
@@ -573,4 +647,47 @@ ul {
 
 .address-item:last-child {
   margin-bottom: 0;
+}
+/* Modal window */
+.backdrop > .modal > .modal-btn {
+}
+/* Modal styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+}
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
 }
